@@ -1,0 +1,54 @@
+
+
+<div class="card bg-dark text-white">
+    <div class="card-header"> {{ titulo }} </div>
+    <div class="card-body">
+        <form #clienteForm="ngForm">
+            <div class="form-group row">
+                <label for="nombre" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" required minlength="4" #nombre="ngModel">
+                    <!--Dirty muestra mensaje de error mientras escribes y touched despues de escribir-->
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div *ngIf="nombre.errors?.['required']">
+                            Nombre es requerido
+                        </div>
+                        <div *ngIf="nombre.errors?.['minlength']">
+                            Nombre mas largo
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="apellido" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-form-label col-sm-2"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email" required email #email="ngModel">
+                    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.errors?.['required']">
+                            Nombre es requerido
+                        </div>
+                        <div *ngIf="email.errors?.['email']">
+                            Debe ser un correo
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- https://angular.io/   buscar validator-->
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btnn-primary" [disabled]="!clienteForm.valid" role="button" (click)="create()" *ngIf="0==cliente.id else elseBlock">Crear usuario</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btnn-primary" [disabled]="!clienteForm.valid" role="button" (click)="update()" >Actualizar usuario</button>
+                    </ng-template>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
