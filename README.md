@@ -1,27 +1,44 @@
 # MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+# Para añadir bootstrap seguimos los siguientes pasos:
 
-## Development server
+* Copiar las librerias del apartado CDN 
+----
+https://getbootstrap.com/docs/5.3/getting-started/download/
+----
+* Las pegamos en el index
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* La otra opcion npm install bootstrap@4.0.0-beta.2 jquery popper.js --save (sobre la raiz), apareceran en el package.json
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Para crear nuevos componentes
 
-## Build
+ng generate class footer.component
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Una mejor forma es usar (desde el directorio my-app)
 
-## Running unit tests
+ng generate component directiva
+ng g c directiva
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Para evitar crear una carpeta podemos indicar --flat
+ng g c clientes/form --flat
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Para listar un array usamos la directiva *ngFor
+# <li class="list-group-item" *ngFor="let curso of listaCurso">{{curso}}</li>
 
-## Further help
+# If
+# *ngIf="habilitar == true"
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Pasar json de clientes
+# Primer paso: ng g c clientes
+# Segundo paso: ng g class cliente
+# para crear el service ng g service cliente
+
+
+
+# El SweetAlert2 para enviar mensaje s de alerta
+https://sweetalert2.github.io/#download
+
+npm install sweetalert2 --save
+Podemos comprobar el el package.json que esta instalado
